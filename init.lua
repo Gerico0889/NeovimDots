@@ -12,7 +12,7 @@ require("telescope").setup({
       -- define mappings, e.g.
       mappings = { -- extend mappings
         i = {
-          ["<C-0>"] = lga_actions.quote_prompt(),
+          ["<C-k>"] = lga_actions.quote_prompt(),
           ["<C-i>"] = lga_actions.quote_prompt({ postfix = " --iglob " }),
         },
       },
@@ -23,4 +23,3 @@ require("telescope").setup({
     },
   },
 })
-require("telescope").load_extension("fzf")
