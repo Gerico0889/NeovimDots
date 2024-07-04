@@ -5,3 +5,4 @@
 local map = vim.keymap.set
 
 map("n", "<leader>fg", ":lua require('telescope').extensions.live_grep_args.live_grep_args()<CR>")
+map("n", "<leader>cb", ":CMakeBuild<CR>")
