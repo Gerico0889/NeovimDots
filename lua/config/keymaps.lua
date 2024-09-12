@@ -4,9 +4,6 @@
 
 local map = vim.keymap.set
 
-map("n", "<leader>fg", ":lua require('telescope').extensions.live_grep_args.live_grep_args()<CR>")
-map("n", "<leader>cb", ":CMakeBuild<CR>")
-
 -- Launch Machine GUI and ask for Machine Type and Resolution
 function RunWithArgs()
   local machine_type = vim.fn.input("Enter the Machine Type (default: M8): ")
@@ -29,6 +26,10 @@ function RunWithArgs()
     .. resolution
 
   vim.cmd("CMakeLaunchArgs " .. gui_args)
-  vim.cmd("CMakeRun")
 end
-vim.api.nvim_set_keymap("n", "<leader>cc", ":lua RunWithArgs()<CR>", { noremap = true, silent = true })
+
+map("n", "<leader>fg", ":lua require('telescope').extensions.live_grep_args.live_grep_args()<CR>")
+map("n", "<leader>c1", ":CMakeBuild<CR>")
+map("n", "<leader>c2", ":lua RunWithArgs()<CR>", { noremap = true, silent = true })
+map("n", "<leader>c3", ":CMakeRun<CR>")
+
