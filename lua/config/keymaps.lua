@@ -34,6 +34,12 @@ function RunWithArgs()
   vim.cmd("CMakeLaunchArgs " .. gui_args)
 end
 
+-- Open custom config file
+function OpenCustomConfig()
+  local config_path = "/source/Machine/config/01-custom-config.properties"
+  vim.cmd("edit " .. config_path)
+end
+
 map(
   "n",
   "<leader>fg",
@@ -41,6 +47,7 @@ map(
   { desc = "Live Grep with Arguments" }
 )
 map("n", "<leader>mb", ":CMakeBuild<CR>", { desc = "Build Machine GUI" })
-map("n", "<leader>mc", ":lua RunWithArgs()<CR>", { desc = "Change Machine GUI Params", silent = true })
+map("n", "<leader>ma", ":lua RunWithArgs()<CR>", { desc = "Change Machine GUI Args", silent = true })
 map("n", "<leader>mt", ":CMakeSelectLaunchTarget<CR>", { desc = "Select target" })
 map("n", "<leader>mr", ":CMakeRun<CR>", { desc = "Run Machine GUI" })
+map("n", "<leader>mc", ":lua OpenCustomConfig()<CR>", { desc = "Open Config File" })
