@@ -2,9 +2,15 @@
 -- Default keymaps that are always set: https://github.com/LazyVim/LazyVim/blob/main/lua/lazyvim/config/keymaps.lua
 -- Add any additional keymaps here
 
+local wk = require("which-key")
 local map = vim.keymap.set
 
--- Launch Machine GUI and ask for Machine Type and Resolution
+-- Add more subcategories here
+wk.add({
+  { "<leader>m", group = "Machine GUI" },
+})
+
+-- Edif Machine GUI arguments and ask for Machine Type and Resolution
 function RunWithArgs()
   local machine_type = vim.fn.input("Enter the Machine Type (default: M8): ")
   if machine_type == "" then
@@ -28,8 +34,13 @@ function RunWithArgs()
   vim.cmd("CMakeLaunchArgs " .. gui_args)
 end
 
-map("n", "<leader>fg", ":lua require('telescope').extensions.live_grep_args.live_grep_args()<CR>")
-map("n", "<leader>c1", ":CMakeBuild<CR>")
-map("n", "<leader>c2", ":lua RunWithArgs()<CR>", { noremap = true, silent = true })
-map("n", "<leader>c3", ":CMakeRun<CR>")
-
+map(
+  "n",
+  "<leader>fg",
+  ":lua require('telescope').extensions.live_grep_args.live_grep_args()<CR>",
+  { desc = "Live Grep with Arguments" }
+)
+map("n", "<leader>mb", ":CMakeBuild<CR>", { desc = "Build Machine GUI" })
+map("n", "<leader>mc", ":lua RunWithArgs()<CR>", { desc = "Change Machine GUI Params", silent = true })
+map("n", "<leader>mt", ":CMakeSelectLaunchTarget<CR>", { desc = "Select target" })
+map("n", "<leader>mr", ":CMakeRun<CR>", { desc = "Run Machine GUI" })
