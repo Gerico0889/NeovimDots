@@ -42,7 +42,7 @@ return {
       dap.adapters.cppdbg = {
         id = "cppdbg",
         type = "executable",
-        command = "/opt/cpptools-linux/debugAdapters/bin/OpenDebugAD7", -- Path inside the container
+        command = "/opt/cpptools-linux/extension/debugAdapters/bin/OpenDebugAD7", -- Path inside the container
       }
 
       -- DAP configuration for C++ (and C)
