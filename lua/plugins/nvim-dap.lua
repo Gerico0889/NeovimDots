@@ -3,6 +3,7 @@ return {
     "mfussenegger/nvim-dap",
     dependencies = {
       "rcarriga/nvim-dap-ui", -- UI for nvim-dap
+      "nvim-neotest/nvim-nio",
       "theHamsta/nvim-dap-virtual-text", -- Virtual text for inline debug info
     },
     config = function()
