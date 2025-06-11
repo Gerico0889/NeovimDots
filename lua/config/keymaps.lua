@@ -16,10 +16,4 @@ function OpenCustomConfig()
   vim.cmd("edit " .. config_path)
 end
 
-map(
-  "n",
-  "<leader>fg",
-  ":lua require('telescope').extensions.live_grep_args.live_grep_args()<CR>",
-  { desc = "Live Grep with Arguments" }
-)
 map("n", "<leader>mc", ":lua OpenCustomConfig()<CR>", { desc = "Open Config File" })
