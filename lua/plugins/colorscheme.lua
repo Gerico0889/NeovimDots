@@ -1,12 +1,10 @@
 return {
-  -- add gruvbox
-  { "navarasu/onedark.nvim" },
-
-  -- Configure LazyVim to load gruvbox
   {
-    "LazyVim/LazyVim",
-    opts = {
-      colorscheme = "onedark",
-    },
+    "rebelot/kanagawa.nvim",
+    lazy = false,
+    priority = 1000,
+    config = function()
+      vim.cmd.colorscheme("kanagawa")
+    end,
   },
 }
